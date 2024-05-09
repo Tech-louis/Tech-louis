@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@Louis - Portfolio</title>
+    <!--favicon-->
+    <link rel="shortcut icon" href="/user 2/photo/tick.svg" type="image/x-icon">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Maps JavaScript API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">@Louis</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">ABOUT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="work.html">WORK</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">CONTACT</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <header class="text-center mt-4">
+        <h1>Louis Salvatory</h1>
+        <img src="/photo/@louis.jpeg" alt="Your Profile Picture" class="img-fluid rounded-circle mt-3" style="width: 250px;">
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mt-4">
+        <section class="about">
+            <h2>About Me</h2>
+            <p>I'm Louis Salvatory, a passionate self-taught front-end developer based in Dar es Salaam. I specialize in crafting beautiful and user-friendly websites using HTML, CSS, and JavaScript. I also have graphic design skills and proficiency in tools like Adobe Photoshop, Illustrator, and Affinity Designer.</p>        </section>
+        <section class="skills">
+            <h2>Skills</h2>
+            <ul>
+                <li>HTML5</li>
+                <li>CSS3</li>
+                <li>JavaScript</li>
+                <li>Responsive Design</li>
+                <li>Bootstrap</li>
+                <li>Adobe Photoshop</li>
+                <li>Adobe Illustrator</li>
+                <li>Affinity Designer</li>
+                <!-- Add more skills as needed -->
+            </ul>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="contact-info">
+                        <p>Email: louislilai00@gmail.com</p>
+                        <p>Phone/WhatsApp: +255 699 503 055</p>
+                        <p>Address: Dar es Salaam - Kigamboni</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="social-links">
+                        <a href="#">LinkedIn</a>
+                        <a href="#">GitHub</a>
+                        <a href="#">Twitter</a>
+                        <!-- Add more social media links as needed -->
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <!-- Add any additional content here -->
+                </div>
+            </div>
+        </div>
+
+    <!--map section-->
+    <section class="map-mt-4">
+        <div class="container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31692.742125075132!2d39.29326450429423!3d-6.81928241340783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x185c4b26738f08db%3A0x831c9e3fd473d341!2sKigamboni!5e0!3m2!1sen!2stz!4v1715173182262!5m2!1sen!2stz" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+    </footer>
+    <!-- Bootstrap JS and jQuery (required for Bootstrap) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- JavaScript for Google Maps -->
+    <script>
+        // Initialize and display the map
+        function initMap() {
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 12, // Zoom level
+                center: { lat: -6.819915, lng: 39.280026 }, // Coordinates of Kigamboni, Dar es Salaam
+            });
+            // Create a DirectionsService object
+            const directionsService = new google.maps.DirectionsService();
+            const directionsRenderer = new google.maps.DirectionsRenderer();
+            directionsRenderer.setMap(map);
+
+            // Function to calculate and display the route
+            window.calculateAndDisplayRoute = function () {
+                directionsService.route(
+                    {
+                        origin: { lat: YOUR_START_LATITUDE, lng: YOUR_START_LONGITUDE }, // Starting point coordinates
+                        destination: { lat: -6.819915, lng: 39.280026 }, // Coordinates of Kigamboni, Dar es Salaam
+                        travelMode: google.maps.TravelMode.DRIVING, // Travel mode (DRIVING, WALKING, BICYCLING, TRANSIT)
+                    },
+                    (response, status) => {
+                        if (status === "OK") {
+                            directionsRenderer.setDirections(response);
+                        } else {
+                            window.alert("Directions request failed due to " + status);
+                        }
+                    }
+                );
+            };
+        }
+    </script>
+</body>
+</html>
